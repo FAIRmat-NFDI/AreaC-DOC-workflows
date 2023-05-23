@@ -1,11 +1,4 @@
-# Workflows in NOMAD
-
-
-## Introduction
-
-Workflows are an important aspect of data management as they enable for a systematic organization of the _tasks_ performed during a Materials Science research project. We refer to _workflow_ to a series of experiments or simulations already performed and composed of _inputs_, _outputs_, and _tasks_ done in a serial or parallel way. Each workflow will have their _entry_ in NOMAD, from which the rest of the meta-information can be accessed via _references_ to other entries and _sections_.
-
-## Tutorial
+# Simulation workflows
 
 We will use a ficticious example of a simulation workflow, where the files and folder structure is:
 <!---
@@ -60,7 +53,7 @@ Each task is then parsed into what we call a _SinglePoint_ entry in NOMAD. Our g
 1. Define an extra workflow entry for each pressure P<sub>i=1,2</sub> grouping all SinglePoint "DFT", "TB", "DMFT at T<sub>1</sub>", and "DMFT at T<sub>2</sub>" tasks.
 2. Define an extra workflow entry grouping all pressure and all temperature calculations.
 
-### SinglePoint as a starting example
+## SinglePoint as a starting example
 
 NOMAD is able to [recognize certain workflows in an automatic way](#automatic-workflows). As an example, we will see here the minimal workflow defined by NOMAD, the `SinglePoint` workflow.
 ```mermaid

@@ -5,7 +5,13 @@ site_author: FAIRmat consortium
 nav:
   - Home: index.md
   - Tutorials: 
-    - tutorial_simulation_workflow.md
+    - tutorials/simulations_example_1.md
+  - How-tos:
+    - howtos/howto_example_1.md
+  - References:
+    - references/refs.md
+  - Explanations: 
+    - explanations/whyworkflows.md
 theme:
   name: material
   palette:
@@ -17,3 +23,5 @@ theme:
   favicon: assets/favicon.png
   features:
     - navigation.instant
+extra_css:
+  - stylesheets/extra.css
