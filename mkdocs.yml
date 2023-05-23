@@ -5,7 +5,7 @@ site_author: FAIRmat consortium
 nav:
   - Home: index.md
   - Tutorial: tutorial.md
-  - How-tos:
+  - How-to:
     - howtos/howto_example_1.md
   - References:
     - references/refs.md
