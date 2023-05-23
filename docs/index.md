@@ -12,5 +12,6 @@ The blue part represents the NOMAD workflow, which is a section of each of the _
 <!--Still not happy with this paragraph, but if we want to show this diagram we have to somehow explain it. IMO (@JosePiarro3), the whole diagram is not understable for anyone outside FAIRmat (and probably also within FAIRmat people would have problems understanding this diagram...)-->
 
 This documentation will show you:  <!--Extend this list according to development-->
+
 - A simple tutorial to understand the managing and definition of custom workflows in NOMAD.
 - ...
