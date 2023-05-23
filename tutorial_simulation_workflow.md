@@ -102,7 +102,7 @@ workflow2:
 This will produce an extra entry with the following Overview content:
 
 <p align="center">
-    <img src="figs/singlepoint_screenshot.png" alt="SinglePoint workflow visualizer" width="50%" title="SinglePoint workflow visualizer">
+    <img src="assets/images/singlepoint.png" alt="SinglePoint workflow visualizer" width="50%" title="SinglePoint workflow visualizer">
 </p>
 
 Note that we are referencing sections which are lists. Thus, in each case we have to be careful on referencing the correct section for inputs and outputs (example: a Geometry Optimization workflow calculation will have the "Input structure" as `run[0].system[0]`, while the "Output calculation" would also contain `run[0].system[-1]`)
@@ -137,7 +137,7 @@ workflow2:
 which produces:
 
 <p align="center">
-    <img src="figs/singlepoint_methodadded.png" alt="SinglePoint workflow visualizer with Method added" width="50%" title="SinglePoint workflow visualizer with Method added">
+    <img src="assets/images/singlepoint_methodadded.png" alt="SinglePoint workflow visualizer with Method added" width="50%" title="SinglePoint workflow visualizer with Method added">
 </p>
 
 
@@ -209,7 +209,7 @@ We can note here:
 This workflow `pressure1.archive.yaml` file will then produce an entry with the following Overview page:
 
 <p align="center">
-    <img src="figs/pressure1.png" alt="Pressure P1 workflow visualizer" width="50%" title="Pressure P1 workflow visualizer">
+    <img src="assets/images/pressure1.png" alt="Pressure P1 workflow visualizer" width="50%" title="Pressure P1 workflow visualizer">
 </p>
 
 Similarly, for P<sub>2</sub> we can upload a new `pressure2.archive.yaml` file with the same content, except when substituting 'pressure1' and 'p1' by their counterparts. This will produce a similar graph than the one showed before.
@@ -297,7 +297,7 @@ Finally, `tasks` references the previous YAML schemas like:
 This will produce the following entry and its Overview page:
 
 <p align="center">
-    <img src="figs/fullworkflow.png" alt="Full workflow visualizer" width="50%" title="Full workflow visualizer">
+    <img src="assets/images/fullworkflow.png" alt="Full workflow visualizer" width="50%" title="Full workflow visualizer">
 </p>
 
 
