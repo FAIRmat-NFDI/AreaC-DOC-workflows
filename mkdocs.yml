@@ -1,0 +1,19 @@
+site_name: NOMAD Workflows Documentation
+site_description: |
+  NOMAD custom and automatic workflow documentation.
+site_author: FAIRmat consortium
+nav:
+  - Home: index.md
+  - Tutorials: 
+    - tutorial_simulation_workflow.md
+theme:
+  name: material
+  palette:
+    primary: '#2A4CDF'
+    accent: '#008A67'
+  font:
+    text: 'Titillium Web'
+  logo: assets/nomad-logo.png
+  favicon: assets/favicon.png
+  features:
+    - navigation.instant
