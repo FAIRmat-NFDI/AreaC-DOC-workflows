@@ -1,0 +1,1 @@
+# How-to: when the mainfile for different entries is the same
