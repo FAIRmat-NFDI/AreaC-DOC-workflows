@@ -4,8 +4,7 @@ site_description: |
 site_author: FAIRmat consortium
 nav:
   - Home: index.md
-  - Tutorials: 
-    - tutorials/simulations_example_1.md
+  - Tutorial: tutorial.md
   - How-tos:
     - howtos/howto_example_1.md
   - References:
