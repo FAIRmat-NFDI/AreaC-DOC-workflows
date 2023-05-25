@@ -32,8 +32,8 @@ Here I should add a href for the files in a zip
 Each of the _mainfiles_ represent an electronic-structure calculation (either [DFT](https://en.wikipedia.org/wiki/Density_functional_theory), [TB](https://en.wikipedia.org/wiki/Tight_binding), or [DMFT](https://en.wikipedia.org/wiki/Dynamical_mean-field_theory)) which in turn is then parsed into a singular _entry_ in NOMAD. When dragged into the [NOMAD Upload page](https://nomad-lab.eu/prod/v1/staging/gui/user/uploads), these files should generate 8 entries in total. This folder structure presents a typical workflow calculation which can be represented as a provenance graph:
 ```mermaid
 graph LR;
-    A((Input structure)) --> B1[DFT];
-    A((Input structure)) --> B2[DFT];
+    A((Inputs)) --> B1[DFT];
+    A((Inputs)) --> B2[DFT];
     subgraph pressure P<sub>2</sub>
     B2[DFT] --> C2[TB];
     C2[TB] --> D21[DMFT at T<sub>1</sub>];
@@ -49,16 +49,13 @@ graph LR;
     D11[DMFT at T<sub>1</sub>] --> E11([Output calculation P<sub>1</sub>, T<sub>1</sub>])
     D12[DMFT at T<sub>2</sub>] --> E12([Output calculation P<sub>1</sub>, T<sub>2</sub>])
 ```
-Here, "Input structure" refers to the all _input_ material given to perform the calculation (e.g., atomic structure, model, parameters, etc.). "DFT", "TB" and "DMFT" refer to individual _tasks_ of the workflow, which each correspond to a _SinglePoint_ entry in NOMAD. "Output calculation" refers to the _output_ data of each of the final DMFT tasks.
+Here, "Input" refers to the all _input_ information given to perform the calculation (e.g., atom positions, model parameters, experimental initial conditions, etc.). "DFT", "TB" and "DMFT" refer to individual _tasks_ of the workflow, which each correspond to a _SinglePoint_ entry in NOMAD. "Output calculation" refers to the _output_ data of each of the final DMFT tasks.
 
 The goal of this tutorial is to set up the following workflows:
 
-1. A `SinglePoint` workflow for the `pressure1` subfolder data.
-<!---
-This file can be ignored for later steps in the Tutorial. -- JFR: I find this to be more confusing than helpful.
--->
+1. A `SinglePoint` workflow for one of the calculations (e.g., the DFT one) in the `pressure1` subfolder.
 2. An overarching workflow entry for each pressure P<sub>i=1,2</sub>, grouping all `SinglePoint` "DFT", "TB", "DMFT at T<sub>1</sub>", and "DMFT at T<sub>2</sub>" tasks.
-3. A top level workflow entry, grouping together all pressure and temperature calculations.
+3. A top level workflow entry, grouping together all pressure calculations.
 
 ## Starting example: SinglePoint workflow
 
@@ -97,7 +94,7 @@ workflow2:
 We can note several things about the content of this file:
 
 1. **`name`** keys are optional.
-2. The root path of the upload can be referenced with `../upload/archive/mainfile/`. Starting from there, the original file structure of the upload is maintained.
+2. The root path of the upload can be referenced with `../upload/archive/mainfile/`. Starting from there, the original directory tree structure of the upload is maintained.
 3. **`inputs`** reference the section containing inputs of the whole workflow. In this case this is the section `run[0].system[-1]` parsed from the mainfile in the path `pressure1/dft_p1.xml`.
 4. **`outputs`** reference the section containing outputs of the whole workflow. In this case this is the section `run[0].calculation[-1]` parsed from the mainfile in the path `pressure1/dft_p1.xml`.
 5. **`tasks`** reference the section containing tasks of each step in the workflow. These must also contain `inputs` and `outputs` properly referencing the corresponding sections; this will then _link_ inputs/outputs/tasks in the NOMAD Archive. In this case this is a `TaskReference` to the section `workflow2` parsed from the mainfile in the path `pressure1/dft_p1.xml`.
@@ -166,9 +163,6 @@ and there are two `outputs`, one for each of the DMFT calculations at distinct t
       section: '../upload/archive/mainfile/pressure1/temperature2/dmft_p1_t2.hdf5#/run/0/calculation/-1'
 ```
 Now, `tasks` are defined for each of the methodologies performed (each corresponding to an underlying SinglePoint workflow). To define a valid workflow, each task must contain an input that corresponds to one of the outputs of the previous task. Moreover, the first task should take as input the overall input of the workflow, and the final task should also have as an output the overall workflow output.
-<!---
-If properly referenced, `inputs` and `outputs` inside each `task` will be able to _link_ among them.
--->
 Then:
 ```yaml
   tasks:

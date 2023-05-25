@@ -1,6 +1,6 @@
 # Workflows in NOMAD
 
-Workflows are an important aspect of data management as they enable a systematic organization of the _tasks_ performed during any Materials Science research project. We refer to a _workflow_ as a series of experiments or simulations composed of _inputs_, _outputs_, and _tasks_ performed either in serial or in parallel. Each _entry_ in NOMAD may have _workflow_ sections, describing how the (meta)data within the entry was generated. Additionally, an "overarching" workflow can be generated within its own _entry_, to define connections between multiple entries (and subworkflows) via _references_ to the corresponding entries and _sections_.
+Workflows are an important aspect of data management as they enable a systematic organization of the _tasks_ performed during any Materials Science research project. We refer to a _workflow_ as a series of experiments or simulations composed of _inputs_, _outputs_, and _tasks_ performed either in serial or in parallel. Each _entry_ in NOMAD has a _workflow_ section, describing how the (meta)data within the entry was generated. Additionally, an "overarching" workflow can be generated within its own _entry_, to define connections between multiple entries (and subworkflows) via _references_ to the corresponding entries and _sections_.
 
 The general schema for a workflow in NOMAD (found under `nomad.datamodel.metainfo.workflow`) can be represented with the following graph:
 
